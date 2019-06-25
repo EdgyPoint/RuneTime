@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Automove : PhysObject
+public class PlayerController : PhysObject
 {
     // Start is called before the first frame update
     void Start()
@@ -11,8 +11,8 @@ public class Automove : PhysObject
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void ComputeVelocity()
     {
-        target_velocity = Vector2.left;
+
     }
 }

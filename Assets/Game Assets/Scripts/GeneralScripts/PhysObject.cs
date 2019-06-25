@@ -9,16 +9,20 @@ public class PhysObject : MonoBehaviour
 
     protected Vector2 velocity = Vector2.zero;
     protected bool grounded;
-    protected Vector2 target_velocity = Vector2.zero;
+    public Vector2 target_velocity = Vector2.zero;
     protected Rigidbody2D rb_2d;
     protected ContactFilter2D contact_filter;
     protected const float shell_radius = 0.01f;
     protected List<RaycastHit2D> collision_buffer_list = new List<RaycastHit2D>(16);
 
+    void OnEnable()
+    {
+        rb_2d = gameObject.GetComponent<Rigidbody2D>();
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        rb_2d = GetComponent<Rigidbody2D>();
         contact_filter.useTriggers = false;
         contact_filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer)); //This means "Just use the project's collision matrix" -Lorién
         contact_filter.useLayerMask = true;
@@ -27,8 +31,12 @@ public class PhysObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        target_velocity = Vector2.zero;
+        ComputeVelocity();
     }
+
+    protected virtual void ComputeVelocity()
+    { }
 
     void FixedUpdate()
     {
@@ -50,8 +58,10 @@ public class PhysObject : MonoBehaviour
         int collision_count = rb_2d.Cast(move, contact_filter, collisions_buffer,distance + shell_radius);
         collision_buffer_list.Clear();
 
-        for(int i = 0; i<collision_count;i++)
+        for (int i = 0; i < collision_count; i++)
+        {
             collision_buffer_list.Add(collisions_buffer[i]); //copy the components to a list for a better handling
+        }
         
         for(int i = 0; i<collision_buffer_list.Count;i++)
         {
