@@ -9,7 +9,7 @@ public class PhysObject : MonoBehaviour
 
     protected Vector2 velocity = Vector2.zero;
     protected bool grounded;
-    public Vector2 target_velocity = Vector2.zero;
+    protected Vector2 target_velocity = Vector2.zero;
     protected Rigidbody2D rb_2d;
     protected ContactFilter2D contact_filter;
     protected const float shell_radius = 0.01f;
