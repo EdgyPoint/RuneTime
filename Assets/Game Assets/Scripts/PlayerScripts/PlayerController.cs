@@ -7,6 +7,7 @@ public class PlayerController : PhysObject
     public float max_speed = 7.0f;
     public float take_off_speed = 7.0f;
     public float jump_cancel_attenuator = .5f;
+    public float horizontal_air_attenuator = .5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,8 @@ public class PlayerController : PhysObject
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis("Horizontal");
+        if (!grounded)
+            move.x *= horizontal_air_attenuator;
 
         if(Input.GetButtonDown("Jump") && grounded)
         {
