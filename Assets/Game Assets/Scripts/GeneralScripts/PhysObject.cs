@@ -6,7 +6,7 @@ public class PhysObject : MonoBehaviour
 {
     public float gravity_magnitude = 1f;
     public float min_ground_normal_y = .65f;
-    public float acceleration = 1.0f; //Percentage of speed added per second;
+    public float acceleration = 1.0f; //Units added per second;
     public float decceleration = 1.0f; //Units deccelerated per second;
 
     protected Vector2 velocity = Vector2.zero;
@@ -35,9 +35,13 @@ public class PhysObject : MonoBehaviour
     {
         target_velocity = Vector2.zero;
         ComputeVelocity();
+        HandleAnimations();
     }
 
     protected virtual void ComputeVelocity()
+    { }
+
+    protected virtual void HandleAnimations()
     { }
 
     void FixedUpdate()
@@ -97,8 +101,10 @@ public class PhysObject : MonoBehaviour
         }
         else if (target_velocity.magnitude == 0 && velocity_x.magnitude > 0)
         {
-            velocity.x -= velocity_x.normalized.x * decceleration * Time.fixedDeltaTime;
+            velocity.x -=  velocity.normalized.x * decceleration * Time.fixedDeltaTime;
         }
     }
+
+
     
 }
