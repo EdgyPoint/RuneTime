@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: PlayerSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.91,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":130.0,"y":176.0},"zoomFactor":0.485986,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"NodeCanvas.Tasks.Actions.PlayerSM_Idle"}]},"_position":{"x":237.0,"y":389.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"NodeCanvas.Tasks.Actions.PlayerSM_Moving"}]},"_position":{"x":519.0,"y":447.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"6"},{"_position":{"x":393.0,"y":62.0},"$type":"NodeCanvas.StateMachines.AnyState","$id":"10"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"NodeCanvas.Tasks.Actions.PlayerSM_Jumping"}]},"_position":{"x":390.0,"y":253.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"11"}],"connections":[{"_condition":{"vector":{"_name":"velocity","_targetVariableID":"9813e313-3b5e-40f1-aeed-c6fc02f2f6cc"},"objective_value":{"_name":"XtoMove","_targetVariableID":"064bb703-be77-49d1-96bb-05909f39129e"},"comparison":"GreaterOrEqualTo","$type":"NodeCanvas.Tasks.Conditions.CheckVectorX"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"vector":{"_name":"velocity","_targetVariableID":"9813e313-3b5e-40f1-aeed-c6fc02f2f6cc"},"objective_value":{"_name":"XtoMove","_targetVariableID":"064bb703-be77-49d1-96bb-05909f39129e"},"comparison":"LessThan","$type":"NodeCanvas.Tasks.Conditions.CheckVectorX"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"grounded","_targetVariableID":"79554c65-fa3a-4f9a-983f-63f3ec330d29"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"grounded","_targetVariableID":"79554c65-fa3a-4f9a-983f-63f3ec330d29"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences: []
+  _deserializationFailed: 0

@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 16892896}
   - component: {fileID: 16892898}
   - component: {fileID: 16892899}
+  - component: {fileID: 16892901}
+  - component: {fileID: 16892900}
   m_Layer: 8
   m_Name: New Sprite
   m_TagString: Player
@@ -267,6 +269,8 @@ MonoBehaviour:
   min_ground_normal_y: 0.65
   acceleration: 6
   decceleration: 6
+  velocity: {x: 0, y: 0}
+  grounded: 0
   max_speed: 4
   take_off_speed: 8
   jump_cancel_attenuator: 0.5
@@ -290,6 +294,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &16892900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16892893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundGraphSerialization: 
+  boundGraphObjectReferences: []
+  enableAction: 0
+  disableAction: 0
+  _graph: {fileID: 11400000, guid: 0ac146b66da17294392e39d7d69af280, type: 2}
+  _blackboard: {fileID: 16892901}
+--- !u!114 &16892901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16892893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{"grounded":{"_propertyPath":"PlayerController.grounded","_name":"grounded","_id":"79554c65-fa3a-4f9a-983f-63f3ec330d29","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"velocity":{"_propertyPath":"PlayerController.velocity","_name":"velocity","_id":"9813e313-3b5e-40f1-aeed-c6fc02f2f6cc","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myFloat":{"_name":"myFloat","_id":"de77a419-c724-4eba-8764-2d279745d910","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Magnitude":{"_name":"Magnitude","_id":"5e3bb859-62bb-48b7-8d53-3c5c13fc40cb","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"XtoMove":{"_value":0.1,"_name":"XtoMove","_id":"064bb703-be77-49d1-96bb-05909f39129e","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences: []
 --- !u!1 &195772462
 GameObject:
   m_ObjectHideFlags: 3
@@ -1655,7 +1696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920247009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92999953, y: -3.28, z: -10}
+  m_LocalPosition: {x: -0.92999977, y: -3.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 195772463}
@@ -1887,7 +1928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694347400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8386921, y: 0.23737359, z: 163.19727}
+  m_LocalPosition: {x: -0.83869237, y: 0.23737359, z: 163.19727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 259463783}

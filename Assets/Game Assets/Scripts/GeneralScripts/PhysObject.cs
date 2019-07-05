@@ -9,8 +9,9 @@ public class PhysObject : MonoBehaviour
     public float acceleration = 1.0f; //Units added per second;
     public float decceleration = 1.0f; //Units deccelerated per second;
 
-    protected Vector2 velocity = Vector2.zero;
-    protected bool grounded;
+    public Vector2 velocity = Vector2.zero;
+   
+    public bool grounded;
     protected Vector2 target_velocity = Vector2.zero;
     protected Rigidbody2D rb_2d;
     protected ContactFilter2D contact_filter;
